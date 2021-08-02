@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
 
   constructor(public getDataService: GetDataService, private router: Router) { }
   response: any;
+  responseList: any;
 
   ngOnInit(): void {
     this.getDatas();
@@ -26,10 +27,15 @@ export class CardComponent implements OnInit {
       }));
   }
 
+
   onClickDetail(id: string, title: string) {
     this.getDataService.id = id;
     this.getDataService.title = title;
     this.router.navigateByUrl('detail');
   }
 
+
+  onClistList() {
+    this.router.navigateByUrl('list');
+  }
 }

@@ -15,7 +15,9 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLists();
-    this.total();
+    setTimeout(() => {
+      this.total();
+    }, 100)
   }
 
   getLists() {
@@ -34,7 +36,8 @@ export class ListComponent implements OnInit {
   }
 
   total() {
-    console.log(this.getDataService.getList())
+    // this.totale = this.getDataService.location;
+    console.log(this.getDataService.location)
   }
 
 }

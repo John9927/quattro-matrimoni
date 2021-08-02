@@ -8,6 +8,11 @@ export class GetDataService {
   id: any;
   title: any;
 
+  location: any;
+  menu: any;
+  prezzo: any;
+  servizio: any;
+
   constructor(private firestore: AngularFirestore) { }
 
 
