@@ -1,6 +1,7 @@
 <div class="container__card">
   <div class="card" *ngFor="let r of response">
     <div class="title" (click)="onClickDetail(r.id, r.nome)">
+      <img src="{{r.image}}" class="img">
       <span class="label" >{{r.nome}}</span>
     </div>
   </div>

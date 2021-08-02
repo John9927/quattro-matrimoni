@@ -4,6 +4,17 @@
   flex-direction: column;
 }
 
+.img {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  height: 150px;
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
 .card {
   display: flex;
   width: 90%;
@@ -23,14 +34,17 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 22px;
+  font-size: 30px;
+  z-index: 10;
 }
 
 .title {
+  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
+  z-index: 10;
 }
 
 .container__list {
