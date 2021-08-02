@@ -1,1 +1,18 @@
-<p>list works!</p>
+<app-header></app-header>
+
+<div class="container__list">
+  <div class="list">
+    <div class="title">
+      <span class="label">Lista</span>
+    </div>
+    <div class="card" *ngFor="let r of response">
+      <div class="title" (click)="onClickDetail(r.id, r.nome)">
+        <span class="label">{{r.nome}}</span>
+        <span class="label">Location: {{r.location}}</span>
+        <span class="label">Menu: {{r.menu}}</span>
+        <span class="label">Prezzo: {{r.prezzo}}</span>
+        <span class="label">Servizio: {{r.servizio}}</span>
+      </div>
+    </div>
+  </div>
+</div>

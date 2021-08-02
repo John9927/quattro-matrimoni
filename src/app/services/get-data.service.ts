@@ -15,6 +15,10 @@ export class GetDataService {
     return this.firestore.collection('locali').get();
   }
 
+  getList() {
+    return this.firestore.collection('dati').get();
+  }
+
   addData(dato: any) {
     return this.firestore.collection('dati').add(dato);
   }
