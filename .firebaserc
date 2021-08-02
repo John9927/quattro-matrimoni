@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "quattromatrimoni-971f9": {
+      "hosting": {
+        "quattro-matrimoni": [
+          "quattromatrimoni-971f9"
+        ]
+      }
+    }
+  }
+}
