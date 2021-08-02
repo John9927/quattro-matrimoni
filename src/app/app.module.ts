@@ -11,6 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import { DetailComponent } from './components/detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './components/list/list.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ListComponent } from './components/list/list.component';
     HeaderComponent,
     DetailComponent,
     ListComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

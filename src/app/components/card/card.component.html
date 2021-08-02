@@ -1,4 +1,4 @@
-<div class="container__card">
+<div class="container__card" *ngIf="spinner; else spin">
   <div class="card" *ngFor="let r of response">
     <div class="title" (click)="onClickDetail(r.id, r.nome)">
       <img src="{{r.image}}" class="img">
@@ -12,3 +12,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #spin>
+  <app-spinner></app-spinner>
+</ng-template>

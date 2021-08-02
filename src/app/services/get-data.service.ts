@@ -7,7 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class GetDataService {
   id: any;
   title: any;
-
+  spinner: Boolean = false;
   location: any;
   menu: any;
   prezzo: any;
