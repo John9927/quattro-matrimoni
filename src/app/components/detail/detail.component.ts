@@ -1,5 +1,6 @@
 import { GetDataService } from './../../services/get-data.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-detail',
@@ -7,13 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-
-  constructor(public getDataService: GetDataService) { }
   id: any;
   title: any;
+
+  constructor(public getDataService: GetDataService, private fb: FormBuilder) { }
+
   ngOnInit(): void {
     this.id = this.getDataService.id;
     this.title = this.getDataService.title;
   }
 
+  form = this.fb.group({
+    servizio: ['', Validators.required],
+    menu: ['', Validators.required],
+    location: ['', Validators.required],
+    prezzo: ['', Validators.required],
+  })
+
+  onClickSubmit(form: any) {
+    console.log(form);
+  }
 }

@@ -1,5 +1,55 @@
 <app-header></app-header>
 
+<div class="container__detail">
+  <div class="detail">
+    <div class="title">
+      {{title}}
+    </div>
 
-{{title}}
-{{id}}
+    <form [formGroup]="form">
+      <!-- Servizio -->
+      <div class="servizio">
+        <div style="margin-bottom: 10px;">
+          <span class="info">Inserire un numero da "0" a "10"</span>
+        </div>
+        <div>
+          <input class="input" type="number" placeholder="Servizio" min="0" max="10" formControlName="servizio">
+        </div>
+      </div>
+
+      <!-- Menu -->
+      <div class="servizio">
+        <div style="margin-bottom: 10px;">
+        </div>
+        <div>
+          <input class="input" type="number" placeholder="Menu" min="0" max="10" formControlName="menu">
+        </div>
+      </div>
+
+      <!-- Prezzo -->
+      <div class="servizio">
+        <div style="margin-bottom: 10px;">
+        </div>
+        <div>
+          <input class="input" type="number" placeholder="Prezzo" min="0" max="10" formControlName="prezzo">
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="servizio">
+        <div style="margin-bottom: 10px;">
+        </div>
+        <div>
+          <input class="input" type="number" placeholder="Location" min="0" max="10" formControlName="location">
+        </div>
+      </div>
+
+      <div class="container__button">
+        <div class="button" (click)="onClickSubmit(form.value)">
+          Invia
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
