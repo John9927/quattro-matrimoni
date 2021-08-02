@@ -30,10 +30,6 @@ export class DetailComponent implements OnInit {
     this.getDataService.servizio = this.form.controls.servizio.value;
     this.getDataService.menu = this.form.controls.menu.value;
     this.getDataService.prezzo = this.form.controls.prezzo.value;
-    console.log("Location:",this.getDataService.location)
-    console.log("servizio:",this.getDataService.servizio)
-    console.log("menu:",this.getDataService.menu)
-    console.log("prezzo:",this.getDataService.prezzo)
     this.getDataService.addData({'nome': this.title, 'id': this.id ,'servizio': this.form.controls.servizio.value, 'menu': this.form.controls.menu.value, 'prezzo': this.form.controls.prezzo.value, 'location': this.form.controls.location.value})
   }
 }
