@@ -14,4 +14,8 @@ export class GetDataService {
   getData() {
     return this.firestore.collection('locali').get();
   }
+
+  addData(dato: any) {
+    return this.firestore.collection('dati').add(dato);
+  }
 }

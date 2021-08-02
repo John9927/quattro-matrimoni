@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AngularFireModule } from '@angular/fire';
 import { DetailComponent } from './components/detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     HeaderComponent,
     DetailComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,

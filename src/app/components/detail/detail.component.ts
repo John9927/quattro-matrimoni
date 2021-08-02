@@ -26,6 +26,6 @@ export class DetailComponent implements OnInit {
   })
 
   onClickSubmit(form: any) {
-    console.log(form);
+    this.getDataService.addData({'nome': this.title, 'id': this.id ,'servizio': this.form.controls.servizio.value, 'menu': this.form.controls.menu.value, 'prezzo': this.form.controls.prezzo.value, 'location': this.form.controls.location.value})
   }
 }
