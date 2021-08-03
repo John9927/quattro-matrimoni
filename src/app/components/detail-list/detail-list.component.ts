@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailListComponent implements OnInit {
   title: any;
-  response: any;
   value = "";
 
   totaleServizio: any;
@@ -30,11 +29,11 @@ export class DetailListComponent implements OnInit {
   getLists() {
     return this.getDataService.getListDetail(this.title).subscribe(data => {
       data.map(res => {
-        this.response = res;
-        this.getDataService.location.push(this.response.location);
-        this.getDataService.prezzo.push(this.response.prezzo);
-        this.getDataService.menu.push(this.response.menu);
-        this.getDataService.servizio.push(this.response.servizio);
+        this.getDataService.response = res;
+        this.getDataService.location.push(this.getDataService.response.location);
+        this.getDataService.prezzo.push(this.getDataService.response.prezzo);
+        this.getDataService.menu.push(this.getDataService.response.menu);
+        this.getDataService.servizio.push(this.getDataService.response.servizio);
       })
       this.totale();
     })
@@ -67,7 +66,6 @@ export class DetailListComponent implements OnInit {
   }
 
   totale() {
-    // setTimeout(() => {
     var totalLocation = this.getDataService.location;
     var totalServizio = this.getDataService.location;
     var totalPrezzo = this.getDataService.location;
@@ -103,7 +101,6 @@ export class DetailListComponent implements OnInit {
     this.getDataService.prezzo = [];
     this.getDataService.menu = [];
     this.getDataService.servizio = [];
-    // }, 500)
   }
 }
 

@@ -10,6 +10,7 @@ import { GetDataService } from 'src/app/services/get-data.service';
 export class ListComponent implements OnInit {
 
   response: any;
+  responseLists: any = [];
   totale: any;
   spinner: Boolean = false;
   constructor(public getDataService: GetDataService, private router: Router) { }
@@ -32,7 +33,15 @@ export class ListComponent implements OnInit {
   onClickDetail(id: string, title: string) {
     this.getDataService.id = id;
     this.getDataService.title = title;
-    this.router.navigateByUrl('detail-list');
+    this.getDataService.getListDetailList(title).subscribe(data => {
+      data.map(res => {
+        this.responseLists = res;
+        if (this.responseLists == {}) {
+          alert("errore")
+        } else {
+          this.router.navigateByUrl('detail-list');
+        }
+      })
+    })
   }
-
 }

@@ -15,6 +15,7 @@ export class DetailComponent implements OnInit {
   constructor(public getDataService: GetDataService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.modalSuccess = false;
     this.id = this.getDataService.id;
     this.title = this.getDataService.title;
   }

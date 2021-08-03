@@ -11,6 +11,7 @@ export class GetDataService {
   menu: any = [];
   prezzo: any = [];
   servizio: any = [];
+  response: any;
 
   filterLocation: Boolean = false;
   filterMenu: Boolean = false;
@@ -29,6 +30,10 @@ export class GetDataService {
   }
 
   getListDetail(title: any) {
+    return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).valueChanges();
+  }
+
+  getListDetailList(title: any) {
     return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).valueChanges();
   }
 
