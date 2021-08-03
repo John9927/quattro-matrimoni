@@ -19,6 +19,27 @@
   flex-direction: column;
 }
 
+.totale {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.all {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.all__label {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 35px;
+  color: red;
+}
+
 .title {
   display: flex;
   justify-content: center;
