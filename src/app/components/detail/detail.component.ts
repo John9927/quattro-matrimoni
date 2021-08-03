@@ -10,6 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class DetailComponent implements OnInit {
   id: any;
   title: any;
+  modalSuccess: Boolean = false;
 
   constructor(public getDataService: GetDataService, private fb: FormBuilder) { }
 
@@ -27,10 +28,15 @@ export class DetailComponent implements OnInit {
   })
 
   onClickSubmit(form: any) {
-      this.getDataService.prezzo = this.form.controls.prezzo.value;
-      this.getDataService.location = this.form.controls.location.value;
-      this.getDataService.servizio = this.form.controls.servizio.value;
-      this.getDataService.menu = this.form.controls.menu.value;
-      this.getDataService.addData({'nomePersona': this.form.controls.nomePersona.value, 'nome': this.title, 'id': this.id ,'servizio': this.form.controls.servizio.value, 'menu': this.form.controls.menu.value, 'prezzo': this.form.controls.prezzo.value, 'location': this.form.controls.location.value})
+    this.getDataService.prezzo = this.form.controls.prezzo.value;
+    this.getDataService.location = this.form.controls.location.value;
+    this.getDataService.servizio = this.form.controls.servizio.value;
+    this.getDataService.menu = this.form.controls.menu.value;
+    this.getDataService.addData({ 'nomePersona': this.form.controls.nomePersona.value, 'nome': this.title, 'id': this.id, 'servizio': this.form.controls.servizio.value, 'menu': this.form.controls.menu.value, 'prezzo': this.form.controls.prezzo.value, 'location': this.form.controls.location.value })
+    this.modalSuccess = true;
+  }
+
+  onClickModal() {
+    this.modalSuccess = false;
   }
 }

@@ -30,11 +30,11 @@ export class DetailListComponent implements OnInit {
   getLists() {
     return this.getDataService.getListDetail(this.title).subscribe(data => {
       data.map(res => {
-          this.response = res;
-          this.getDataService.location.push(this.response.location);
-          this.getDataService.prezzo.push(this.response.prezzo);
-          this.getDataService.menu.push(this.response.menu);
-          this.getDataService.servizio.push(this.response.servizio);
+        this.response = res;
+        this.getDataService.location.push(this.response.location);
+        this.getDataService.prezzo.push(this.response.prezzo);
+        this.getDataService.menu.push(this.response.menu);
+        this.getDataService.servizio.push(this.response.servizio);
       })
       this.totale();
     })
@@ -42,67 +42,67 @@ export class DetailListComponent implements OnInit {
 
   onClickItems(value: any) {
 
-      if(value == 'servizio') {
-          this.getDataService.filterServizio = true;
-          this.getDataService.filterMenu = false;
-          this.getDataService.filterPrezzo = false;
-          this.getDataService.filterLocation = false;
-      } else if(value == 'menu') {
-        this.getDataService.filterMenu = true;
-        this.getDataService.filterPrezzo = false;
-        this.getDataService.filterLocation = false;
-        this.getDataService.filterServizio = false;
-      } else if(value == 'prezzo') {
-        this.getDataService.filterPrezzo = true;
-        this.getDataService.filterLocation = false;
-        this.getDataService.filterMenu = false;
-        this.getDataService.filterServizio = false;
-      } else if(value == 'location') {
-        this.getDataService.filterLocation = true;
-        this.getDataService.filterPrezzo = false;
-        this.getDataService.filterMenu = false;
-        this.getDataService.filterServizio = false;
-      }
-      this.router.navigateByUrl('detail-score');
+    if (value == 'servizio') {
+      this.getDataService.filterServizio = true;
+      this.getDataService.filterMenu = false;
+      this.getDataService.filterPrezzo = false;
+      this.getDataService.filterLocation = false;
+    } else if (value == 'menu') {
+      this.getDataService.filterMenu = true;
+      this.getDataService.filterPrezzo = false;
+      this.getDataService.filterLocation = false;
+      this.getDataService.filterServizio = false;
+    } else if (value == 'prezzo') {
+      this.getDataService.filterPrezzo = true;
+      this.getDataService.filterLocation = false;
+      this.getDataService.filterMenu = false;
+      this.getDataService.filterServizio = false;
+    } else if (value == 'location') {
+      this.getDataService.filterLocation = true;
+      this.getDataService.filterPrezzo = false;
+      this.getDataService.filterMenu = false;
+      this.getDataService.filterServizio = false;
+    }
+    this.router.navigateByUrl('detail-score');
   }
 
   totale() {
     // setTimeout(() => {
-      var totalLocation = this.getDataService.location;
-      var totalServizio = this.getDataService.location;
-      var totalPrezzo = this.getDataService.location;
-      var totalMenu = this.getDataService.location;
+    var totalLocation = this.getDataService.location;
+    var totalServizio = this.getDataService.location;
+    var totalPrezzo = this.getDataService.location;
+    var totalMenu = this.getDataService.location;
 
-      if (totalLocation.length > 1) {
-        this.totaleLocation = this.getDataService.location.reduce((a: number, b: number) => +a + +b, 0);
-      } else {
-        this.totaleLocation = this.getDataService.location
-      }
+    if (totalLocation.length > 1) {
+      this.totaleLocation = this.getDataService.location.reduce((a: number, b: number) => +a + +b, 0);
+    } else {
+      this.totaleLocation = this.getDataService.location
+    }
 
-      if (totalServizio.length > 1) {
-        this.totaleServizio = this.getDataService.servizio.reduce((a: number, b: number) => +a + +b, 0);
-      } else {
-        this.totaleServizio = this.getDataService.servizio
-      }
+    if (totalServizio.length > 1) {
+      this.totaleServizio = this.getDataService.servizio.reduce((a: number, b: number) => +a + +b, 0);
+    } else {
+      this.totaleServizio = this.getDataService.servizio
+    }
 
-      if (totalPrezzo.length > 1) {
-        this.totalePrezzo = this.getDataService.prezzo.reduce((a: number, b: number) => +a + +b, 0);
-      } else {
-        this.totalePrezzo = this.getDataService.prezzo
-      }
+    if (totalPrezzo.length > 1) {
+      this.totalePrezzo = this.getDataService.prezzo.reduce((a: number, b: number) => +a + +b, 0);
+    } else {
+      this.totalePrezzo = this.getDataService.prezzo
+    }
 
-      if (totalMenu.length > 1) {
-        this.totaleMenu = this.getDataService.menu.reduce((a: number, b: number) => +a + +b, 0);
-      } else {
-        this.totaleMenu = this.getDataService.menu
-      }
-      // Some All Data
-      this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
+    if (totalMenu.length > 1) {
+      this.totaleMenu = this.getDataService.menu.reduce((a: number, b: number) => +a + +b, 0);
+    } else {
+      this.totaleMenu = this.getDataService.menu
+    }
+    // Some All Data
+    this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
 
-      this.getDataService.location = [];
-      this.getDataService.prezzo = [];
-      this.getDataService.menu = [];
-      this.getDataService.servizio = [];
+    this.getDataService.location = [];
+    this.getDataService.prezzo = [];
+    this.getDataService.menu = [];
+    this.getDataService.servizio = [];
     // }, 500)
   }
 }
