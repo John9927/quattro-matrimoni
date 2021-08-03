@@ -17,11 +17,40 @@
   margin-bottom: 25px;
 }
 
+.container__detail {
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
   font-size: 28px;
   font-weight: bold;
 }
 
 .label__title {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+.item {
   font-size: 20px;
+}
+
+.items {
+  font-size: 22px;
+  color: blue;
+}
+
+.servizio,
+.menu,
+.prezzo,
+.location {
+  margin-bottom: 20px;
+}
+
+.servizio {
+  margin-top: 25px;
 }

@@ -15,6 +15,8 @@ export class DetailListComponent implements OnInit {
   totalePrezzo: any;
   totaleLocation: any;
 
+  allData: any;
+
   constructor(private getDataService: GetDataService) { }
 
   ngOnInit(): void {
@@ -44,7 +46,6 @@ export class DetailListComponent implements OnInit {
 
       if (totalLocation.length > 1) {
         this.totaleLocation = this.getDataService.location.reduce((a: number, b: number) => +a + +b, 0);
-        console.log(this.totaleLocation);
       } else {
         this.totaleLocation = this.getDataService.location;
       }
@@ -57,10 +58,8 @@ export class DetailListComponent implements OnInit {
 
       if (totalPrezzo.length > 1) {
         this.totalePrezzo = this.getDataService.prezzo.reduce((a: number, b: number) => +a + +b, 0);
-        console.log(this.totalePrezzo);
       } else {
         this.totalePrezzo = this.getDataService.prezzo;
-        console.log(this.totalePrezzo);
       }
 
       if (totalMenu.length > 1) {
@@ -68,6 +67,11 @@ export class DetailListComponent implements OnInit {
       } else {
         this.totaleMenu = this.getDataService.menu;
       }
+
+      this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
+      console.log(this.allData);
+
+
       this.getDataService.location = [];
       this.getDataService.prezzo = [];
       this.getDataService.menu = [];
