@@ -4,8 +4,8 @@
   <div class="title">
     <span class="label">Servizio</span>
   </div>
-  <div *ngFor="let r of response">
-    {{r.nomePersona}}: {{r.servizio}}
+  <div *ngFor="let r of response" class="items">
+    <span class="item">{{r.nomePersona}}: {{r.servizio}}</span>
   </div>
 </div>
 
@@ -13,8 +13,8 @@
   <div class="title">
     <span class="label">Prezzo</span>
   </div>
-  <div *ngFor="let r of response">
-    {{r.nomePersona}}: {{r.prezzo}}
+  <div *ngFor="let r of response" class="items">
+    <span class="item">{{r.nomePersona}}: {{r.prezzo}}</span>
   </div>
 </div>
 
@@ -22,8 +22,8 @@
   <div class="title">
     <span class="label">Location</span>
   </div>
-  <div *ngFor="let r of response">
-    {{r.nomePersona}}: {{r.location}}
+  <div *ngFor="let r of response" class="items">
+    <span class="item">{{r.nomePersona}}: {{r.location}}</span>
   </div>
 </div>
 
@@ -31,7 +31,7 @@
   <div class="title">
     <span class="label">Menu</span>
   </div>
-  <div *ngFor="let r of response">
-    {{r.nomePersona}}: {{r.menu}}
+  <div *ngFor="let r of response" class="items">
+    <span class="item">{{r.nomePersona}}: {{r.menu}}</span>
   </div>
 </div>
