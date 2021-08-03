@@ -13,10 +13,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickPlus() {
-    console.log("Aggiungi Ristorante")
-  }
-
   onClickHome() {
     this.router.navigateByUrl('');
   }

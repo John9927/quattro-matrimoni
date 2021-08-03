@@ -16,26 +16,13 @@ export class DetailScoreComponent implements OnInit {
     this.getLists();
   }
 
-  // getLists() {
-  //   return this.getDataService.getListDetail(this.title).subscribe(data => {
-  //     data.map(res => {
-  //       this.response = res;
-  //       console.log(this.response)
-  //       this.getDataService.location.push(this.response.location);
-  //       this.getDataService.prezzo.push(this.response.prezzo);
-  //       this.getDataService.menu.push(this.response.menu);
-  //       this.getDataService.servizio.push(this.response.servizio);
-  //     })
-  //   })
-  // }
-
   getLists() {
     return this.getDataService.getListScore(this.title).subscribe(data =>
       this.response = data.docs.map(e => {
-        return {
-          id: e.id,
-          ...e.data() as any
-        } as any;
+          return {
+            id: e.id,
+            ...e.data() as any
+          } as any;
       }));
   }
 
