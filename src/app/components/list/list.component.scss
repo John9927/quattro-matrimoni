@@ -21,12 +21,13 @@
   opacity: 0.4;
 }
 
-.label {
-  font-size: 20px;
+.label__title {
+  font-size: 30px;
   display: flex;
   z-index: 10;
   justify-content: center;
 }
+
 
 .card {
   display: flex;
@@ -36,6 +37,7 @@
   border-radius: 4px;
   background-color: gray;
   margin-bottom: 20px;
+  position: relative;
   cursor: pointer;
 
   &:hover {
@@ -47,7 +49,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .title {
@@ -56,5 +59,6 @@
   width: 100%;
   z-index: 10;
   padding: 20px 0px;
+  justify-content: center;
   align-items: center;
 }

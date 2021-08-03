@@ -1,0 +1,27 @@
+.container__detail__list {
+  display: flex;
+  width: 100%;
+}
+
+.detail__list {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.label {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.label__title {
+  font-size: 20px;
+}

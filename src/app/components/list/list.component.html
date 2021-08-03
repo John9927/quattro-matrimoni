@@ -6,14 +6,9 @@
       <span class="label">Lista</span>
     </div>
     <div class="card" *ngFor="let r of response">
+      <img src="{{r.image}}" class="img">
       <div class="title" (click)="onClickDetail(r.id, r.nome)">
-        <span class="label">{{r.nome}}</span>
-        <div>
-          <span class="label">Location: {{r.location}}</span>
-          <span class="label">Menu: {{r.menu}}</span>
-          <span class="label">Prezzo: {{r.prezzo}}</span>
-          <span class="label">Servizio: {{r.servizio}}</span>
-        </div>
+        <span class="label__title">{{r.nome}}</span>
       </div>
     </div>
   </div>

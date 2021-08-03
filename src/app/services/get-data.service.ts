@@ -7,10 +7,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class GetDataService {
   id: any;
   title: any;
-  location: any;
-  menu: any;
-  prezzo: any;
-  servizio: any;
+  location: any = [];
+  menu: any = [];
+  prezzo: any = [];
+  servizio: any = [];
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -21,6 +21,11 @@ export class GetDataService {
 
   getList() {
     return this.firestore.collection('dati').get();
+  }
+
+
+  getListDetail(title: any) {
+    return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).valueChanges();
   }
 
   addData(dato: any) {
