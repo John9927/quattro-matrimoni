@@ -11,27 +11,17 @@ export class ListComponent implements OnInit {
 
   response: any;
   totale: any;
-
+  spinner: Boolean = false;
   constructor(public getDataService: GetDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.getDatas();
   }
 
-  // getLists() {
-  //   return this.getDataService.getList().subscribe(data =>
-  //     this.response = data.docs.map(e => {
-  //       return {
-  //         id: e.id,
-  //         ...e.data() as any
-  //       } as any;
-  //     }));
-  // }
-
   getDatas() {
     return this.getDataService.getData().subscribe(data =>
       this.response = data.docs.map(e => {
-        // this.spinner = true;
+        this.spinner = true;
         return {
           id: e.id,
           ...e.data() as any

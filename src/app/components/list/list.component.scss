@@ -1,6 +1,16 @@
+.container__spinner {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 200px);
+  justify-content: center;
+  align-items: center;
+}
+
 .container__list {
   display: flex;
   width: 100%;
+  position: relative;
 }
 
 .list {

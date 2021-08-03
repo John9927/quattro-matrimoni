@@ -5,11 +5,19 @@
     <div class="title">
       <span class="label">Lista</span>
     </div>
-    <div class="card" *ngFor="let r of response">
-      <img src="{{r.image}}" class="img">
-      <div class="title" (click)="onClickDetail(r.id, r.nome)">
-        <span class="label__title">{{r.nome}}</span>
+    <div class="container" *ngIf="spinner; else spin">
+      <div class="card" *ngFor="let r of response">
+        <img src="{{r.image}}" class="img">
+        <div class="title" (click)="onClickDetail(r.id, r.nome)">
+          <span class="label__title">{{r.nome}}</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #spin>
+  <div class="container__spinner">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>
