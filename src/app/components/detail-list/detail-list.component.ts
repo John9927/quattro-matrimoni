@@ -11,12 +11,14 @@ export class DetailListComponent implements OnInit {
   title: any;
   value = "";
 
+  errore: Boolean = false;
   totaleServizio: any;
   totaleMenu: any;
   totalePrezzo: any;
   totaleLocation: any;
 
   allData: any;
+  spinnero: Boolean = true;
 
   constructor(private getDataService: GetDataService, private router: Router) { }
 
@@ -24,6 +26,14 @@ export class DetailListComponent implements OnInit {
     this.title = this.getDataService.title;
     this.getLists();
     this.totale();
+
+    if(!this.allData) {
+      setTimeout(() => {
+        this.spinnero = false;
+        console.log(this.spinnero)
+        this.errore = true;
+      }, 3000)
+    }
   }
 
   getLists() {
@@ -40,7 +50,6 @@ export class DetailListComponent implements OnInit {
   }
 
   onClickItems(value: any) {
-
     if (value == 'servizio') {
       this.getDataService.filterServizio = true;
       this.getDataService.filterMenu = false;

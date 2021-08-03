@@ -35,13 +35,12 @@ export class ListComponent implements OnInit {
     this.getDataService.title = title;
     this.getDataService.getListDetailList(title).subscribe(data => {
       data.map(res => {
-        if (res == []) {
         this.responseLists = res;
-          console.log("errore")
-        } else {
-          this.router.navigateByUrl('detail-list');
-        }
+        console.log(!this.responseLists)
       })
     })
+    if (this.responseLists === {}) { } else {
+      this.router.navigateByUrl('detail-list');
+    }
   }
 }

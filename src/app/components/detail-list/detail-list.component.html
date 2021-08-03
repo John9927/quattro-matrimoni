@@ -9,20 +9,20 @@
 
     <div class="container__detail" *ngIf="allData; else spinner">
       <div class="servizio">
-       <span class="item">Servizio: </span>
-       <span class="items" (click)="onClickItems(value = 'servizio')">{{totaleServizio}}</span>
+        <span class="item">Servizio: </span>
+        <span class="items" (click)="onClickItems(value = 'servizio')">{{totaleServizio}}</span>
       </div>
       <div class="menu">
-       <span class="item">Menu: </span>
-       <span class="items" (click)="onClickItems(value = 'menu')">{{totaleMenu}}</span>
+        <span class="item">Menu: </span>
+        <span class="items" (click)="onClickItems(value = 'menu')">{{totaleMenu}}</span>
       </div>
       <div class="prezzo">
-       <span class="item">Prezzo: </span>
-       <span class="items" (click)="onClickItems(value = 'prezzo')" >{{totalePrezzo}}</span>
+        <span class="item">Prezzo: </span>
+        <span class="items" (click)="onClickItems(value = 'prezzo')">{{totalePrezzo}}</span>
       </div>
       <div class="location">
-       <span class="item">Location: </span>
-       <span class="items" (click)="onClickItems(value = 'location')">{{totaleLocation}}</span>
+        <span class="item">Location: </span>
+        <span class="items" (click)="onClickItems(value = 'location')">{{totaleLocation}}</span>
       </div>
       <div class="totale">
         <span class="total">Totale: </span>
@@ -35,8 +35,11 @@
 </div>
 
 <ng-template #spinner>
-  <div class="container__spinner">
+  <div class="container__spinner" *ngIf="spinnero">
     <app-spinner></app-spinner>
+
+  </div>
+  <div *ngIf="errore" class="error">
+    NON E' DISPONIBILE NESSUN PUNTEGGIO PER QUESTO RISTORANTE
   </div>
 </ng-template>
-
