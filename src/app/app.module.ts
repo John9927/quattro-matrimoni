@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './components/list/list.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { DetailListComponent } from './components/detail-list/detail-list.component';
+import { DetailScoreComponent } from './components/detail-score/detail-score.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DetailListComponent } from './components/detail-list/detail-list.compon
     ListComponent,
     SpinnerComponent,
     DetailListComponent,
+    DetailScoreComponent,
   ],
   imports: [
     BrowserModule,

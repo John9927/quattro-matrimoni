@@ -12,6 +12,11 @@ export class GetDataService {
   prezzo: any = [];
   servizio: any = [];
 
+  filterLocation: Boolean = false;
+  filterMenu: Boolean = false;
+  filterPrezzo: Boolean = false;
+  filterServizio: Boolean = false;
+
   constructor(private firestore: AngularFirestore) { }
 
 
@@ -23,9 +28,12 @@ export class GetDataService {
     return this.firestore.collection('dati').get();
   }
 
-
   getListDetail(title: any) {
     return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).valueChanges();
+  }
+
+  getListScore(title: any) {
+    return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).get();
   }
 
   addData(dato: any) {

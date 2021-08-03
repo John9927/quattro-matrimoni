@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div *ngIf="getDataService.filterServizio">
+  <div *ngFor="let r of response">
+    {{r.servizio}}
+  </div>
+</div>
+
+<div *ngIf="getDataService.filterPrezzo">
+  <div *ngFor="let r of response">
+    {{r.prezzo}}
+  </div>
+</div>

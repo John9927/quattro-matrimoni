@@ -72,13 +72,16 @@
 .items {
   font-size: 22px;
   color: blue;
+  border: 2px solid red;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .servizio,
 .menu,
 .prezzo,
 .location {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .servizio {

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { GetDataService } from 'src/app/services/get-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetailListComponent implements OnInit {
   title: any;
   response: any;
+  value = "";
 
   totaleServizio: any;
   totaleMenu: any;
@@ -17,7 +19,7 @@ export class DetailListComponent implements OnInit {
 
   allData: any;
 
-  constructor(private getDataService: GetDataService) { }
+  constructor(private getDataService: GetDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.title = this.getDataService.title;
@@ -35,6 +37,19 @@ export class DetailListComponent implements OnInit {
         this.getDataService.servizio.push(this.response.servizio);
       })
     })
+  }
+
+  onClickItems(value: any) {
+    if(value == 'servizio') {
+      this.getDataService.filterServizio = true;
+    } else if(value == 'menu') {
+      this.getDataService.filterMenu = true;
+    } else if(value == 'prezzo') {
+      this.getDataService.filterPrezzo = true;
+    } else if(value == 'location') {
+      this.getDataService.filterLocation = true;
+    }
+    this.router.navigateByUrl('detail-score');
   }
 
   totale() {
@@ -67,10 +82,8 @@ export class DetailListComponent implements OnInit {
       } else {
         this.totaleMenu = this.getDataService.menu;
       }
-
+      // Some All Data
       this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
-      console.log(this.allData);
-
 
       this.getDataService.location = [];
       this.getDataService.prezzo = [];
