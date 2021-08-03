@@ -11,6 +11,7 @@ export class GetDataService {
   menu: any = [];
   prezzo: any = [];
   servizio: any = [];
+  modalSuccess: Boolean = false;
   response: any;
 
   filterLocation: Boolean = false;
@@ -42,6 +43,6 @@ export class GetDataService {
   }
 
   addData(dato: any) {
-    return this.firestore.collection('dati').add(dato);
+    return this.firestore.collection('dati').add(dato).then(() => {this.modalSuccess = true});
   }
 }

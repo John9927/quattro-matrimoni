@@ -35,9 +35,9 @@ export class ListComponent implements OnInit {
     this.getDataService.title = title;
     this.getDataService.getListDetailList(title).subscribe(data => {
       data.map(res => {
+        if (res == []) {
         this.responseLists = res;
-        if (this.responseLists == {}) {
-          alert("errore")
+          console.log("errore")
         } else {
           this.router.navigateByUrl('detail-list');
         }
