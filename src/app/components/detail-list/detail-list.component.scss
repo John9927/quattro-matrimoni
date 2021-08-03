@@ -1,3 +1,12 @@
+.container__spinner {
+  display: flex;
+  position: absolute;
+  width: 90%;
+  height: calc(100vh - 200px);
+  justify-content: center;
+  align-items: center;
+}
+
 .container__detail__list {
   display: flex;
   width: 100%;

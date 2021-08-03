@@ -7,7 +7,7 @@
     </div>
     <span class="label__title">{{title}}</span>
 
-    <div class="container__detail">
+    <div class="container__detail" *ngIf="allData; else spinner">
       <div class="servizio">
        <span class="item">Servizio: </span><span class="items">{{totaleServizio}}</span>
       </div>
@@ -26,3 +26,10 @@
     </div>
   </div>
 </div>
+
+<ng-template #spinner>
+  <div class="container__spinner">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>
+
