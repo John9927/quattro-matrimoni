@@ -36,7 +36,6 @@ export class ListComponent implements OnInit {
     this.getDataService.getListDetailList(title).subscribe(data => {
       data.map(res => {
         this.responseLists = res;
-        console.log(!this.responseLists)
       })
     })
     if (this.responseLists === {}) { } else {

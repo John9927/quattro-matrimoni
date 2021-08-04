@@ -21,7 +21,7 @@
       <div class="servizio">
         <div>
           <select formControlName="servizio" class="select">
-            <option value="" disabled selected>Servizio</option>
+            <option value="" disabled selected>Servizio *</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -34,6 +34,11 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <div class="error__container" *ngIf="form.controls.servizio.invalid && form.controls.servizio.touched">
+            <span class="error__label">
+              Questo campo è obbligatorio
+            </span>
+          </div>
         </div>
       </div>
 
@@ -43,7 +48,7 @@
         </div>
         <div>
           <select formControlName="menu" class="select">
-            <option value="" disabled selected>Menu</option>
+            <option value="" disabled selected>Menu *</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -56,6 +61,11 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <div class="error__container" *ngIf="form.controls.menu.invalid && form.controls.menu.touched">
+            <span class="error__label">
+              Questo campo è obbligatorio
+            </span>
+          </div>
         </div>
       </div>
 
@@ -65,7 +75,7 @@
         </div>
         <div>
           <select formControlName="prezzo" class="select">
-            <option value="" disabled selected>Prezzo</option>
+            <option value="" disabled selected>Prezzo *</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -78,6 +88,11 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <div class="error__container" *ngIf="form.controls.prezzo.invalid && form.controls.prezzo.touched">
+            <span class="error__label">
+              Questo campo è obbligatorio
+            </span>
+          </div>
         </div>
       </div>
 
@@ -87,7 +102,7 @@
         </div>
         <div>
           <select formControlName="location" class="select">
-            <option value="" disabled selected>Location</option>
+            <option value="" disabled selected>Location *</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -100,6 +115,11 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <div class="error__container" *ngIf="form.controls.location.invalid && form.controls.location.touched">
+            <span class="error__label">
+              Questo campo è obbligatorio
+            </span>
+          </div>
         </div>
       </div>
 

@@ -30,7 +30,6 @@ export class DetailListComponent implements OnInit {
     if(!this.allData) {
       setTimeout(() => {
         this.spinnero = false;
-        console.log(this.spinnero)
         this.errore = true;
       }, 3000)
     }
