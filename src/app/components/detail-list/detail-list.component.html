@@ -8,31 +8,35 @@
     <span class="label__title">{{title}}</span>
 
     <div class="container__detail" *ngIf="allData; else spinner">
-      <div class="servizio">
-        <span class="item">Servizio: </span>
-        <span class="items" (click)="onClickItems(value = 'servizio')">{{totaleServizio}}</span>
+      <!-- <div *ngFor="let r of getDataService.response">
+        {{r}} -->
+        <div class="servizio">
+          <span class="item">Servizio: </span>
+          <span class="items" (click)="onClickItems(value = 'servizio')">{{totaleServizio}}</span>
+        </div>
+        <div class="menu">
+          <span class="item">Menu: </span>
+          <span class="items" (click)="onClickItems(value = 'menu')">{{totaleMenu}}</span>
+        </div>
+        <div class="prezzo">
+          <span class="item">Prezzo: </span>
+          <span class="items" (click)="onClickItems(value = 'prezzo')">{{totalePrezzo}}</span>
+        </div>
+        <div class="location">
+          <span class="item">Location: </span>
+          <span class="items" (click)="onClickItems(value = 'location')">{{totaleLocation}}</span>
+        </div>
+        <div class="totale">
+          <span class="total">Totale: </span>
+        </div>
+        <div class="all">
+          <span class="all__label">{{allData}}</span>
+        </div>
       </div>
-      <div class="menu">
-        <span class="item">Menu: </span>
-        <span class="items" (click)="onClickItems(value = 'menu')">{{totaleMenu}}</span>
-      </div>
-      <div class="prezzo">
-        <span class="item">Prezzo: </span>
-        <span class="items" (click)="onClickItems(value = 'prezzo')">{{totalePrezzo}}</span>
-      </div>
-      <div class="location">
-        <span class="item">Location: </span>
-        <span class="items" (click)="onClickItems(value = 'location')">{{totaleLocation}}</span>
-      </div>
-      <div class="totale">
-        <span class="total">Totale: </span>
-      </div>
-      <div class="all">
-        <span class="all__label">{{allData}}</span>
-      </div>
+
     </div>
   </div>
-</div>
+<!-- </div> -->
 
 <ng-template #spinner>
   <div class="container__spinner" *ngIf="spinnero">

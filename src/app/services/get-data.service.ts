@@ -14,6 +14,8 @@ export class GetDataService {
   modalSuccess: Boolean = false;
   response: any;
 
+  allData: any;
+
   filterLocation: Boolean = false;
   filterMenu: Boolean = false;
   filterPrezzo: Boolean = false;

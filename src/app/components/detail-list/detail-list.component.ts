@@ -20,7 +20,7 @@ export class DetailListComponent implements OnInit {
   allData: any;
   spinnero: Boolean = true;
 
-  constructor(private getDataService: GetDataService, private router: Router) { }
+  constructor(public getDataService: GetDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.title = this.getDataService.title;
