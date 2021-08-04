@@ -21,6 +21,8 @@ export class GetDataService {
   filterPrezzo: Boolean = false;
   filterServizio: Boolean = false;
 
+  dataCurrent: any;
+
   constructor(private firestore: AngularFirestore) { }
 
 
@@ -40,11 +42,20 @@ export class GetDataService {
     return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).valueChanges();
   }
 
-  getListScore(title: any) {
-    return this.firestore.collection('dati', ref => ref.where('nome', '==', title)).get();
+  getListScore(title: any, data: any) {
+    return this.firestore.collection('dati', ref => ref.where('nome', '==', title).where('data', '==', data)).get();
   }
 
   addData(dato: any) {
     return this.firestore.collection('dati').add(dato).then(() => {this.modalSuccess = true});
   }
+
+  getDatas(title: any) {
+    return this.firestore.collection('dati', ref => ref.orderBy("data", "asc").where('nome', '==', title)).get();
+  }
+
+  getDataAndTitle(data: any, title: any) {
+    return this.firestore.collection('dati', ref => ref.where('nome', '==', title).where("data", "==", data)).valueChanges();
+  }
 }
+

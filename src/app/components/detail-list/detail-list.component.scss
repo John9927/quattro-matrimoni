@@ -96,3 +96,28 @@
 .servizio {
   margin-top: 25px;
 }
+
+form {
+  display: flex;
+  width: 100%;
+  margin: 25px 0;
+}
+
+select {
+  border: 0;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 4px;
+  background: aliceblue;
+  margin-right: 10px;
+}
+
+.button {
+  border: 0;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 4px;
+  background: rgb(125, 152, 175);
+  margin-right: 10px;
+  font-weight: bold;
+}

@@ -7,24 +7,34 @@
     </div>
     <span class="label__title">{{title}}</span>
 
-    <div class="container__detail" *ngIf="allData; else spinner">
-      <!-- <div *ngFor="let r of getDataService.response">
-        {{r}} -->
+    <div class="container__detail">
+
+      <form [formGroup]="data" class="datas">
+        <select (change)="selectData($event, data.controls.datas.value, title)" formControlName="datas" class="select" id="edit">
+          <option selected>Seleziona data</option>
+          <option *ngFor="let r of responses">{{r.data}}</option>
+        </select>
+      </form>
+
+      <div *ngIf="showPoint; else spinner">
         <div class="servizio">
           <span class="item">Servizio: </span>
-          <span class="items" (click)="onClickItems(value = 'servizio')">{{totaleServizio}}</span>
+          <span class="items"
+            (click)="onClickItems(value = 'servizio', data.controls.datas.value)">{{totaleServizio}}</span>
         </div>
         <div class="menu">
           <span class="item">Menu: </span>
-          <span class="items" (click)="onClickItems(value = 'menu')">{{totaleMenu}}</span>
+          <span class="items" (click)="onClickItems(value = 'menu', data.controls.datas.value)">{{totaleMenu}}</span>
         </div>
         <div class="prezzo">
           <span class="item">Prezzo: </span>
-          <span class="items" (click)="onClickItems(value = 'prezzo')">{{totalePrezzo}}</span>
+          <span class="items"
+            (click)="onClickItems(value = 'prezzo', data.controls.datas.value)">{{totalePrezzo}}</span>
         </div>
         <div class="location">
           <span class="item">Location: </span>
-          <span class="items" (click)="onClickItems(value = 'location')">{{totaleLocation}}</span>
+          <span class="items"
+            (click)="onClickItems(value = 'location', data.controls.datas.value)">{{totaleLocation}}</span>
         </div>
         <div class="totale">
           <span class="total">Totale: </span>
@@ -33,15 +43,13 @@
           <span class="all__label">{{allData}}</span>
         </div>
       </div>
-
     </div>
   </div>
-<!-- </div> -->
+</div>
 
 <ng-template #spinner>
   <div class="container__spinner" *ngIf="spinnero">
     <app-spinner></app-spinner>
-
   </div>
   <div *ngIf="errore" class="error">
     NON E' DISPONIBILE NESSUN PUNTEGGIO PER QUESTO RISTORANTE

@@ -17,7 +17,7 @@ export class DetailScoreComponent implements OnInit {
   }
 
   getLists() {
-    return this.getDataService.getListScore(this.title).subscribe(data =>
+    return this.getDataService.getListScore(this.title, this.getDataService.dataCurrent).subscribe(data =>
       this.response = data.docs.map(e => {
           return {
             id: e.id,
