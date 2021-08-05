@@ -2,7 +2,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GetDataService } from 'src/app/services/get-data.service';
 import { Component, OnInit } from '@angular/core';
-import { distinctUntilChanged } from 'rxjs/operators';
 @Component({
   selector: 'app-detail-list',
   templateUrl: './detail-list.component.html',
@@ -11,14 +10,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 export class DetailListComponent implements OnInit {
   title: any;
   value = "";
-
   errore: Boolean = false;
-  totaleServizio: any;
-  totaleMenu: any;
-  totalePrezzo: any;
-  totaleLocation: any;
-
-  allData: any;
   spinnero: Boolean = false;
 
   constructor(public getDataService: GetDataService, private router: Router, private fb: FormBuilder) { }
@@ -26,34 +18,33 @@ export class DetailListComponent implements OnInit {
   store = localStorage.getItem('dataquattroristoranti');
   storeCurrent: any;
   showStore: Boolean = false;
-  showPoint: Boolean = false;
   responseDataAndTitle: any;
   dataGet: any;
   titleGet: any;
   dataquattroristoranti: any;
+  dataArray: any = [];
+  responses: any;
+  response: any;
 
   selectData(event: any, data: any, title: any) {
-    this.dataquattroristoranti = event.target.value;
-    localStorage.setItem('dataquattroristoranti', this.dataquattroristoranti)
-    console.log(localStorage.getItem('dataquattroristoranti'));
-
-    this.showPoint = true;
+    this.getDataService.dataSelezionata = event.target.value;
+    this.getDataService.showPoint = true;
     this.spinnero = true;
     this.responseDataAndTitle = [];
     this.getDataService.getDataAndTitle(data, title).subscribe(data => {
       this.dataGet = data;
       this.titleGet = title;
-      this.totaleServizio = [];
-      this.totaleMenu = [];
-      this.totalePrezzo = [];
-      this.totaleLocation = [];
+      this.getDataService.totaleServizio = [];
+      this.getDataService.totaleMenu = [];
+      this.getDataService.totalePrezzo = [];
+      this.getDataService.totaleLocation = [];
       data.map(res => {
         this.responseDataAndTitle = res;
-        this.totaleServizio = +this.totaleServizio + +this.responseDataAndTitle.servizio;
-        this.totaleMenu = +this.totaleMenu + +this.responseDataAndTitle.menu;
-        this.totalePrezzo = +this.totalePrezzo + +this.responseDataAndTitle.prezzo;
-        this.totaleLocation = +this.totaleLocation + +this.responseDataAndTitle.location;
-        this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
+        this.getDataService.totaleServizio = +this.getDataService.totaleServizio + +this.responseDataAndTitle.servizio;
+        this.getDataService.totaleMenu = +this.getDataService.totaleMenu + +this.responseDataAndTitle.menu;
+        this.getDataService.totalePrezzo = +this.getDataService.totalePrezzo + +this.responseDataAndTitle.prezzo;
+        this.getDataService.totaleLocation = +this.getDataService.totaleLocation + +this.responseDataAndTitle.location;
+        this.getDataService.allData = +this.getDataService.totaleLocation + +this.getDataService.totaleMenu + +this.getDataService.totalePrezzo + +this.getDataService.totaleServizio;
         this.spinnero = false;
       })
       this.getDataService.servizio = [];
@@ -67,13 +58,18 @@ export class DetailListComponent implements OnInit {
     this.title = this.getDataService.title;
     this.getLists();
     this.getData();
-    // this.totale();
 
-    if (!this.allData) {
+    if (!this.getDataService.allData) {
       setTimeout(() => {
         this.spinnero = false;
-        // this.errore = true;
       }, 3000)
+    }
+    setTimeout(() => {
+      console.log("sono la dataSelezionata", this.getDataService.dataSelezionata)
+    }, 500)
+
+    if (this.getDataService.dataSelezionata) {
+      this.data.controls['datas'].setValue(this.getDataService.dataSelezionata);
     }
   }
 
@@ -82,7 +78,6 @@ export class DetailListComponent implements OnInit {
   })
 
 
-  response: any;
   getLists() {
     return this.getDataService.getListDetail(this.title).subscribe(data => {
       data.map(res => {
@@ -93,20 +88,27 @@ export class DetailListComponent implements OnInit {
         this.getDataService.menu.push(this.getDataService.response.menu);
         this.getDataService.servizio.push(this.getDataService.response.servizio);
       })
-      // this.totale();
     })
   }
 
-  responses: any;
   getData() {
-    return this.getDataService.getDatas(this.title).pipe(distinctUntilChanged()).subscribe(data =>
+    this.getDataService.getDatas(this.title).subscribe(data =>
       this.responses = data.docs.map(e => {
         return {
           id: e.id,
           ...e.data() as any
         } as any;
       }));
+    setTimeout(() => {
+      this.responses.map((data: any) => {
+        this.dataArray.push(data.data);
+      });
+      this.dataArray = this.dataArray.filter(function (elem: any, index: any, self: any) {
+        return index === self.indexOf(elem);
+      });
+    }, 500);
   }
+  // quando clicco devo resettare la dat
 
   // Serve per farmi mostrare l'item che clicco nella sezione detail-score
   onClickItems(value: any, data: any) {
@@ -134,43 +136,5 @@ export class DetailListComponent implements OnInit {
     }
     this.router.navigateByUrl('detail-score');
   }
-
-  // totale() {
-  //   var totalLocation = this.getDataService.location;
-  //   var totalServizio = this.getDataService.location;
-  //   var totalPrezzo = this.getDataService.location;
-  //   var totalMenu = this.getDataService.location;
-
-  //   if (totalLocation.length > 1) {
-  //     this.totaleLocation = this.getDataService.location.reduce((a: number, b: number) => +a + +b, 0);
-  //   } else {
-  //     this.totaleLocation = this.getDataService.location
-  //   }
-
-  //   if (totalServizio.length > 1) {
-  //     this.totaleServizio = this.getDataService.servizio.reduce((a: number, b: number) => +a + +b, 0);
-  //   } else {
-  //     this.totaleServizio = this.getDataService.servizio
-  //   }
-
-  //   if (totalPrezzo.length > 1) {
-  //     this.totalePrezzo = this.getDataService.prezzo.reduce((a: number, b: number) => +a + +b, 0);
-  //   } else {
-  //     this.totalePrezzo = this.getDataService.prezzo
-  //   }
-
-  //   if (totalMenu.length > 1) {
-  //     this.totaleMenu = this.getDataService.menu.reduce((a: number, b: number) => +a + +b, 0);
-  //   } else {
-  //     this.totaleMenu = this.getDataService.menu
-  //   }
-  //   // Some All Data
-  //   this.allData = +this.totaleLocation + +this.totaleMenu + +this.totalePrezzo + +this.totaleServizio;
-
-  //   this.getDataService.location = [];
-  //   this.getDataService.prezzo = [];
-  //   this.getDataService.menu = [];
-  //   this.getDataService.servizio = [];
-  // }
 }
 

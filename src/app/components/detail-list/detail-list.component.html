@@ -12,35 +12,35 @@
       <form [formGroup]="data" class="datas">
         <select (change)="selectData($event, data.controls.datas.value, title)" formControlName="datas" class="select" id="edit">
           <option selected>Seleziona data</option>
-          <option *ngFor="let r of responses">{{r.data}}</option>
+          <option *ngFor="let r of dataArray">{{r}}</option>
         </select>
       </form>
 
-      <div *ngIf="showPoint; else spinner">
+      <div *ngIf="getDataService.showPoint; else spinner">
         <div class="servizio">
           <span class="item">Servizio: </span>
           <span class="items"
-            (click)="onClickItems(value = 'servizio', data.controls.datas.value)">{{totaleServizio}}</span>
+            (click)="onClickItems(value = 'servizio', data.controls.datas.value)">{{getDataService.totaleServizio}}</span>
         </div>
         <div class="menu">
           <span class="item">Menu: </span>
-          <span class="items" (click)="onClickItems(value = 'menu', data.controls.datas.value)">{{totaleMenu}}</span>
+          <span class="items" (click)="onClickItems(value = 'menu', data.controls.datas.value)">{{getDataService.totaleMenu}}</span>
         </div>
         <div class="prezzo">
           <span class="item">Prezzo: </span>
           <span class="items"
-            (click)="onClickItems(value = 'prezzo', data.controls.datas.value)">{{totalePrezzo}}</span>
+            (click)="onClickItems(value = 'prezzo', data.controls.datas.value)">{{getDataService.totalePrezzo}}</span>
         </div>
         <div class="location">
           <span class="item">Location: </span>
           <span class="items"
-            (click)="onClickItems(value = 'location', data.controls.datas.value)">{{totaleLocation}}</span>
+            (click)="onClickItems(value = 'location', data.controls.datas.value)">{{getDataService.totaleLocation}}</span>
         </div>
         <div class="totale">
           <span class="total">Totale: </span>
         </div>
         <div class="all">
-          <span class="all__label">{{allData}}</span>
+          <span class="all__label">{{getDataService.allData}}</span>
         </div>
       </div>
     </div>

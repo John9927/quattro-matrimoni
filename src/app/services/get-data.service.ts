@@ -23,6 +23,16 @@ export class GetDataService {
 
   dataCurrent: any;
 
+
+  totaleServizio: any;
+  totaleMenu: any;
+  totalePrezzo: any;
+  totaleLocation: any;
+  showPoint: Boolean = false;
+
+
+  dataSelezionata: any;
+
   constructor(private firestore: AngularFirestore) { }
 
 
