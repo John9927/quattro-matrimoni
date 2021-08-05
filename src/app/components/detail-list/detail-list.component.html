@@ -12,7 +12,7 @@
       <form [formGroup]="data" class="datas">
         <select (change)="selectData($event, data.controls.datas.value, title)" formControlName="datas" class="select" id="edit">
           <option selected>Seleziona data</option>
-          <option *ngFor="let r of dataArray">{{r}}</option>
+          <option *ngFor="let r of dataArray" [selected]="getDataService.dataSelezionata">{{r}}</option>
         </select>
       </form>
 
