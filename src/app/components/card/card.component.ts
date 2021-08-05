@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
   response: any;
   responseList: any;
   spinner: Boolean = false;
-  punteggio: string = "Pluto";
+  punteggio: string = "Score";
 
   ngOnInit(): void {
     this.getDatas();
