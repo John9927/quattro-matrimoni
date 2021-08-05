@@ -64,9 +64,6 @@ export class DetailListComponent implements OnInit {
         this.spinnero = false;
       }, 3000)
     }
-    setTimeout(() => {
-      console.log("sono la dataSelezionata", this.getDataService.dataSelezionata)
-    }, 500)
 
     if (this.getDataService.dataSelezionata) {
       this.data.controls['datas'].setValue(this.getDataService.dataSelezionata);
@@ -99,7 +96,10 @@ export class DetailListComponent implements OnInit {
           ...e.data() as any
         } as any;
       }));
-    setTimeout(() => {
+      setTimeout(() => {
+      if(this.responses.length == 0) {
+        this.errore = true;
+      }
       this.responses.map((data: any) => {
         this.dataArray.push(data.data);
       });
