@@ -33,6 +33,7 @@ export class ListComponent implements OnInit {
   onClickDetail(id: string, title: string) {
     this.getDataService.id = id;
     // Messo a false lo showPoint in modo da non far vedere i dati quando clicco sulla lista dei ristoranti
+    this.getDataService.dataSelezionata = [];
     this.getDataService.showPoint = false;
     this.getDataService.allData = [];
     this.getDataService.title = title;
