@@ -83,7 +83,5 @@ export class CardComponent implements OnInit {
     this.getDataService.lat = lat;
     this.getDataService.lon = lon;
     this.router.navigateByUrl('detail');
-    console.log(this.getDataService.lat);
-    console.log(this.getDataService.lon);
   }
 }
