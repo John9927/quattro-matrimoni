@@ -16,7 +16,6 @@ export class CardComponent implements OnInit {
 
   constructor(public getDataService: GetDataService, private router: Router, private fb: FormBuilder) { }
 
-  city: any;
   responseCity: any = [];
   dataArray: any = [];
 
@@ -30,8 +29,23 @@ export class CardComponent implements OnInit {
   });
 
   onChangeForm(city: any) {
-    console.log(city);
-    this.city = city;
+    this.getDataService.getFilterCity(city).subscribe(data =>
+      this.response = data.docs.map(e => {
+        return {
+          id: e.id,
+          ...e.data() as any
+        } as any;
+      }));
+
+      if(this.formCity.controls.city.value == "All") {
+        this.getDataService.getCity().subscribe(data =>
+          this.response = data.docs.map(e => {
+            return {
+              id: e.id,
+              ...e.data() as any
+            } as any;
+          }));
+      }
   }
 
   getCity() {

@@ -56,16 +56,16 @@
   z-index: 10;
 }
 
-.formCity {
-  display: flex;
-  width: 100%;
-}
-
 .container__city {
   display: flex;
   width: 100%;
   width: 90%;
   margin: 0 auto;
+}
+
+.formCity {
+  display: flex;
+  width: 100%;
 }
 
 select {

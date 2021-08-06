@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from 'src/app/services/get-data.service';
@@ -13,10 +14,13 @@ export class ListComponent implements OnInit {
   responseLists: any = [];
   totale: any;
   spinner: Boolean = false;
-  constructor(public getDataService: GetDataService, private router: Router) { }
+  dataArray: any = [];
+  responseCity: any;
+  constructor(public getDataService: GetDataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getDatas();
+    this.getCity();
   }
 
   getDatas() {
@@ -28,6 +32,48 @@ export class ListComponent implements OnInit {
           ...e.data() as any
         } as any;
       }));
+  }
+
+  formCity = this.fb.group({
+    city: [''],
+  });
+
+  onChangeForm(city: any) {
+    this.getDataService.getFilterCity(city).subscribe(data =>
+      this.response = data.docs.map(e => {
+        return {
+          id: e.id,
+          ...e.data() as any
+        } as any;
+      }));
+
+      if(this.formCity.controls.city.value == "All") {
+        this.getDataService.getCity().subscribe(data =>
+          this.response = data.docs.map(e => {
+            return {
+              id: e.id,
+              ...e.data() as any
+            } as any;
+          }));
+      }
+  }
+
+  getCity() {
+    this.getDataService.getCity().subscribe(data =>
+      this.responseCity = data.docs.map(e => {
+        return {
+          id: e.id,
+          ...e.data() as any
+        } as any;
+      }));
+    setTimeout(() => {
+      this.responseCity.map((data: any) => {
+        this.dataArray.push(data.citta);
+      });
+      this.dataArray = this.dataArray.filter(function (elem: any, index: any, self: any) {
+        return index === self.indexOf(elem);
+      });
+    }, 800);
   }
 
   onClickDetail(id: string, title: string) {

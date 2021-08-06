@@ -5,6 +5,17 @@
     <div class="title">
       <span class="label">Lista</span>
     </div>
+
+    <form [formGroup]="formCity" class="formCity">
+      <div class="container__city">
+        <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
+          <option selected>All</option>
+          <option *ngFor="let city of dataArray">{{city}}</option>
+        </select>
+      </div>
+    </form>
+
+
     <div class="container" *ngIf="spinner; else spin">
       <div class="card" *ngFor="let r of response">
         <img src="{{r.image}}" class="img">
