@@ -55,22 +55,3 @@
   align-items: center;
   z-index: 10;
 }
-
-.container__list {
-  display: flex;
-  width: 100%;
-  font-size: 20px;
-  justify-content: center;
-}
-
-.list {
-  display: flex;
-  width: 150px;
-  justify-content: center;
-  border: 2px solid gray;
-  border-radius: 4px;
-  height: 50px;
-  align-items: center;
-  background-color: rgb(214, 214, 214);
-  cursor: pointer;
-}

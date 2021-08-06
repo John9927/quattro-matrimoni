@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
-  constructor(public getDataService: GetDataService, private router: Router) { }
   response: any;
   responseList: any;
   spinner: Boolean = false;
   punteggio: string = "Punteggio";
+
+  constructor(public getDataService: GetDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.getDatas();
@@ -30,15 +30,9 @@ export class CardComponent implements OnInit {
       }));
   }
 
-
   onClickDetail(id: string, title: string) {
     this.getDataService.id = id;
     this.getDataService.title = title;
     this.router.navigateByUrl('detail');
-  }
-
-
-  onClistList() {
-    this.router.navigateByUrl('list');
   }
 }

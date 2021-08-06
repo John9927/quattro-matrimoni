@@ -13,11 +13,75 @@
   font-weight: bold;
 }
 
+.label {
+  position: absolute;
+  display: flex;
+  width: 91%;
+  justify-content: center;
+  z-index: 1;
+}
+
 a {
   text-decoration: none;
   color: black;
 }
 
+.fa-bars-container {
+  z-index: 100;
+}
+
 .plus, .title {
   cursor: pointer;
+}
+
+
+//
+
+.container__header__mobile {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.header__mobile {
+  position: absolute;
+  top: 0;
+  display: flex;
+  width: 250px;
+  background: rgb(172, 163, 163);
+  height: 100vh;
+  z-index: 10;
+  animation: showMenu .5s ease-in;
+}
+
+.container__item {
+  display: flex;
+  width: 89%;
+  margin: 100px auto;
+  flex-direction: column;
+}
+
+.button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border: 0;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.items {
+  display: flex;
+  width: 100%;
+  height: 42px;
+}
+
+@keyframes showMenu {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 250px;
+  }
 }

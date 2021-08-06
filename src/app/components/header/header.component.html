@@ -1,8 +1,16 @@
 <div class="section__container">
   <div class="section">
     <div class="container__items">
-      <div class="title" (click)="onClickHome()">
-        <span>4 Ristoranti</span>
+      <div class="title" >
+        <!-- Hamburger -->
+        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="showHamburger == false">
+          <i class="fas fa-bars"></i>
+        </div>
+        <!-- Close -->
+        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="showHamburger == true">
+          <i class="fas fa-times"></i>
+        </div>
+        <span class="label" (click)="onClickHome()">Ristoranti</span>
       </div>
       <div class="plus">
         <a href="javascript:javascript:history.go(-1)">
@@ -12,6 +20,24 @@
             </svg>
           </p>
         </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showHamburger" class="container__header__mobile">
+  <div class="header__mobile">
+    <div class="container__item">
+      <div class="items" (click)="onClickHome()">
+        <button class="button" >
+          Home
+        </button>
+      </div>
+      <div class="items" (click)="onClickPunteggio()">
+        <button class="button" >
+          Punteggio
+        </button>
       </div>
     </div>
   </div>

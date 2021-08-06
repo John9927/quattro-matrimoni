@@ -12,7 +12,7 @@
 }
 
 .input {
-  width: 93.5%;
+  width: calc(100% - 22px);
   border: 1px solid black;
   border-radius: 4px;
   padding: 11px;
