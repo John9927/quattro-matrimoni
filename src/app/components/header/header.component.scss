@@ -28,13 +28,17 @@ a {
 }
 
 .fa-bars-container {
-  z-index: 100;
+  z-index: 101;
 }
 
-.plus, .title {
+.title {
+  z-index: 101;
+}
+
+.plus,
+.title {
   cursor: pointer;
 }
-
 
 //
 
@@ -42,17 +46,18 @@ a {
   display: flex;
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .header__mobile {
-  position: absolute;
-  top: 0;
   display: flex;
   width: 250px;
-  background: rgb(172, 163, 163);
+  background: #aca3a3;
   height: 100vh;
-  z-index: 10;
-  animation: showMenu .5s ease-in;
+  z-index: 100;
+  animation: showMenu 0.5s ease-in;
 }
 
 .container__item {
@@ -69,6 +74,11 @@ a {
   border: 0;
   align-items: center;
   margin-bottom: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(131, 120, 120);
+  }
 }
 
 .items {

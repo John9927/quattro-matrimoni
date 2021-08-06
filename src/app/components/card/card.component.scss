@@ -55,3 +55,27 @@
   align-items: center;
   z-index: 10;
 }
+
+.formCity {
+  display: flex;
+  width: 100%;
+}
+
+.container__city {
+  display: flex;
+  width: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+select {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.city__select {
+  width: 100px;
+  display: flex;
+  margin-bottom: 30px;
+}

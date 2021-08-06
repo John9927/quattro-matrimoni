@@ -67,5 +67,13 @@ export class GetDataService {
   getDataAndTitle(data: any, title: any) {
     return this.firestore.collection('dati', ref => ref.where('nome', '==', title).where("data", "==", data)).valueChanges();
   }
+
+  getFilterCity(city: any) {
+    return this.firestore.collection('locali', ref => ref.where('citta', '==', city)).get();
+  }
+
+  getCity() {
+    return this.firestore.collection('locali').get();
+  }
 }
 

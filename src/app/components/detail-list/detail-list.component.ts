@@ -108,7 +108,6 @@ export class DetailListComponent implements OnInit {
       });
     }, 500);
   }
-  // quando clicco devo resettare la dat
 
   // Serve per farmi mostrare l'item che clicco nella sezione detail-score
   onClickItems(value: any, data: any) {

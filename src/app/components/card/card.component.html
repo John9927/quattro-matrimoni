@@ -1,4 +1,14 @@
 <div class="container__card" *ngIf="spinner; else spin">
+
+  <form [formGroup]="formCity" class="formCity">
+    <div class="container__city">
+      <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
+        <option value="All" selected>All</option>
+        <option *ngFor="let city of dataArray">{{city}}</option>
+      </select>
+    </div>
+  </form>
+
   <div class="card" *ngFor="let r of response">
     <div class="title" (click)="onClickDetail(r.id, r.nome)">
       <img src="{{r?.image}}" class="img">
