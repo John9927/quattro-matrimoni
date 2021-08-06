@@ -63,3 +63,12 @@ table {
   height: 100%;
   margin: 0 auto;
 }
+
+// color
+.bg {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(310deg, #8e8f92 30%, transparent 30%), linear-gradient(340deg, transparent 58%, #ffffff 58%), #c1c3c9;
+  overflow-y: auto;
+}
