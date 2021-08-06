@@ -45,8 +45,9 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  font-size: 35px;
-  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
 }
 
 .title {
@@ -81,7 +82,7 @@
 .items {
   font-size: 22px;
   color: blue;
-  border: 2px solid red;
+  border: 2px solid #504a4a;;
   padding: 5px 10px;
   border-radius: 4px;
 }
