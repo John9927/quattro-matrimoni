@@ -77,9 +77,13 @@ export class CardComponent implements OnInit {
       }));
   }
 
-  onClickDetail(id: string, title: string) {
+  onClickDetail(id: string, title: string, lat: any, lon: any) {
     this.getDataService.id = id;
     this.getDataService.title = title;
+    this.getDataService.lat = lat;
+    this.getDataService.lon = lon;
     this.router.navigateByUrl('detail');
+    console.log(this.getDataService.lat);
+    console.log(this.getDataService.lon);
   }
 }

@@ -12,17 +12,22 @@ export class DetailComponent implements OnInit {
   id: any;
   title: any;
   data: string;
+  lat: number | undefined;
+  lng: number | undefined;
+
   constructor(public getDataService: GetDataService, private fb: FormBuilder) {
     this.data =  formatDate(new Date(), 'dd/MM/yyyy', 'en');
   }
-
-  lat = 42.0033426;
-  lng = 14.9956388;
 
   ngOnInit(): void {
     this.getDataService.modalSuccess = false;
     this.id = this.getDataService.id;
     this.title = this.getDataService.title;
+
+    setTimeout(() => {
+      this.lat = this.getDataService.lat;
+      this.lng = this.getDataService.lon;
+    }, 300)
   }
 
   form = this.fb.group({

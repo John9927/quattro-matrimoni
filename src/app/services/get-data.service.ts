@@ -30,8 +30,10 @@ export class GetDataService {
   totaleLocation: any;
   showPoint: Boolean = false;
 
-
   dataSelezionata: any;
+
+  lat: any;
+  lon: any;
 
   constructor(private firestore: AngularFirestore) { }
 
