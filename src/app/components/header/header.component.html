@@ -10,7 +10,9 @@
         <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="showHamburger == true">
           <i class="fas fa-times"></i>
         </div>
-        <span class="label" (click)="onClickHome()">Ristoranti</span>
+        <div class="label">
+         <span class="click__label" (click)="onClickHome()">Ristoranti</span>
+        </div>
       </div>
       <div class="plus">
         <a href="javascript:javascript:history.go(-1)">

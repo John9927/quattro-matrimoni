@@ -22,6 +22,10 @@
   z-index: 100;
 }
 
+.click__label {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -29,6 +33,7 @@ a {
 
 .fa-bars-container {
   z-index: 102;
+  cursor: pointer;
 }
 
 .title {
@@ -39,8 +44,7 @@ a {
   z-index: 102;
 }
 
-.plus,
-.title {
+.plus {
   cursor: pointer;
 }
 
