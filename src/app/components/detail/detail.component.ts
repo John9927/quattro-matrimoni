@@ -16,6 +16,9 @@ export class DetailComponent implements OnInit {
     this.data =  formatDate(new Date(), 'dd/MM/yyyy', 'en');
   }
 
+  lat = 42.0033426;
+  lng = 14.9956388;
+
   ngOnInit(): void {
     this.getDataService.modalSuccess = false;
     this.id = this.getDataService.id;

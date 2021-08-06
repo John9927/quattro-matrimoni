@@ -75,5 +75,9 @@ export class GetDataService {
   getCity() {
     return this.firestore.collection('locali').get();
   }
+
+  getLatLon() {
+    return this.firestore.collection('locali').valueChanges();
+  }
 }
 

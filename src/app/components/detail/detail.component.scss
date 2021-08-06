@@ -214,3 +214,18 @@ a {
   font-size: 14px;
   color: red;
 }
+
+
+// map
+
+.map {
+  width: 90%;
+  margin: 20px auto;
+}
+
+agm-map {
+  height: 230px;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0 auto;
+}

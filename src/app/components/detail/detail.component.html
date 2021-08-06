@@ -134,7 +134,7 @@
 </div>
 
 <!-- Modal Success -->
-<div class="container__modal" *ngIf="getDataService.modalSuccess" >
+<div class="container__modal" *ngIf="getDataService.modalSuccess">
   <div class="modal">
     <div class="title">
       <span class="label__modal" style="color: #1b4332;">
@@ -154,4 +154,10 @@
       </span>
     </div>
   </div>
+</div>
+
+<div class="map">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </div>
