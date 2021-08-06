@@ -46,8 +46,7 @@ export class ListComponent implements OnInit {
           ...e.data() as any
         } as any;
       }));
-
-      if(this.formCity.controls.city.value == "All") {
+      if(this.formCity.controls.city.value == "Tutto") {
         this.getDataService.getCity().subscribe(data =>
           this.response = data.docs.map(e => {
             return {
