@@ -3,7 +3,7 @@
   <form [formGroup]="formCity" class="formCity">
     <div class="container__city">
       <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
-        <option selected>All</option>
+        <option selected>Tutto</option>
         <option *ngFor="let city of dataArray">{{city}}</option>
       </select>
     </div>
