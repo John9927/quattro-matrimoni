@@ -1,32 +1,36 @@
 <div class="bg">
-<app-header></app-header>
+  <app-header></app-header>
 
-<div class="container__list">
-  <div class="list">
-    <div class="title">
-      <span class="label">Lista</span>
-    </div>
-
-    <form [formGroup]="formCity" class="formCity">
-      <div class="container__city">
-        <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
-          <option selected>Tutto</option>
-          <option *ngFor="let city of dataArray">{{city}}</option>
-        </select>
+  <div class="container__list">
+    <div class="list">
+      <div class="title">
+        <span class="label">Lista</span>
       </div>
-    </form>
+
+      <form [formGroup]="formCity" class="formCity">
+        <div class="container__city">
+          <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
+            <option selected>Filtro</option>
+            <option>Tutto</option>
+            <option *ngFor="let city of dataArray">{{city}}</option>
+          </select>
+        </div>
+      </form>
 
 
-    <div class="container" *ngIf="spinner; else spin">
-      <div class="card" *ngFor="let r of response">
-        <img src="{{r.image}}" class="img">
-        <div class="title" (click)="onClickDetail(r.id, r.nome)">
-          <span class="label__title">{{r.nome}}</span>
+      <div class="container" *ngIf="spinner; else spin">
+        <div class="card" *ngFor="let r of response">
+          <img src="{{r.image}}" class="img">
+          <div class="container__city__label">
+            <span class="city__label">{{r.citta}}</span>
+          </div>
+          <div class="title" (click)="onClickDetail(r.id, r.nome)">
+            <span class="label__title">{{r.nome}}</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <ng-template #spin>
   <div class="container__spinner">

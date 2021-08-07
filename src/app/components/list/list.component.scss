@@ -113,3 +113,18 @@ select {
 option {
   text-align: left;
 }
+
+.container__city__label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  z-index: 4;
+}
+
+.city__label {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  opacity: 1;
+}

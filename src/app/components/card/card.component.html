@@ -3,7 +3,8 @@
   <form [formGroup]="formCity" class="formCity">
     <div class="container__city">
       <select (change)="onChangeForm(formCity.controls.city.value)" formControlName="city" class="city__select">
-        <option selected>Tutto</option>
+        <option selected>Filtro</option>
+        <option>Tutto</option>
         <option *ngFor="let city of dataArray">{{city}}</option>
       </select>
     </div>
@@ -12,12 +13,15 @@
   <div class="card" *ngFor="let r of response">
     <div class="title" (click)="onClickDetail(r.id, r.nome, r.lat, r.lon)">
       <img src="{{r?.image}}" class="img">
-      <span class="label" >{{r.nome}}</span>
+      <div class="container__city__label">
+        <span class="city__label">{{r.citta}}</span>
+      </div>
+      <span class="label">{{r.nome}}</span>
     </div>
   </div>
 </div>
 
-<ng-template #spin >
+<ng-template #spin>
   <div class="container__spinner">
     <app-spinner></app-spinner>
   </div>
