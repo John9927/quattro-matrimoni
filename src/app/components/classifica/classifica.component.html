@@ -1,3 +1,36 @@
 <div class="bg">
+  <!-- Header -->
   <app-header></app-header>
+
+  <!-- Anno -->
+  <div *ngIf="showYear">
+    <div class="label__data__container">
+      <span class="label__data">Scegli Anno</span>
+    </div>
+    <div class="card" *ngFor="let y of dataArray" (click)="onClickAnno(y)">
+      <div class="title">
+        <span class="label">{{y}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mese -->
+  <div *ngIf="showMonth">
+    <div class="label__data__container">
+      <span class="label__data">Scegli Mese</span>
+    </div>
+    <div class="card" *ngFor="let m of dataArrayMonth" (click)="onClickAnno(m)">
+      <div class="title">
+        <span class="label">{{m}}</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
+<!-- <ng-template #spin>
+  <div class="container__spinner">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template> -->

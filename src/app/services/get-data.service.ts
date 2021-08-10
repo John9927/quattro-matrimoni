@@ -82,5 +82,13 @@ export class GetDataService {
   getLatLon() {
     return this.firestore.collection('locali').valueChanges();
   }
+
+  getMonthAndYear() {
+    return this.firestore.collection('dati', ref => ref.orderBy('mese', 'asc')).get();
+  }
+
+  getFilterMonthAndYear(anno: string) {
+    return this.firestore.collection('dati', ref => ref.where("anno", "==", anno)).get();
+  }
 }
 
