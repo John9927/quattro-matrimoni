@@ -17,9 +17,14 @@
   <!-- Mese -->
   <div *ngIf="showMonth">
     <div class="label__data__container">
-      <span class="label__data">Scegli Mese</span>
+      <span class="label__data">
+        <span (click)="onClickAnnoLabel()" style="color: green; text-decoration: underline;">
+          Scegli Anno
+        </span>
+        &nbsp; -> {{annoCorrente}}
+      </span>
     </div>
-    <div class="card" *ngFor="let m of dataArrayMonth" (click)="onClickAnno(m)">
+    <div class="card" *ngFor="let m of dataArrayMonth" (click)="onClickMese(m)">
       <div class="title">
         <span class="label">{{m}}</span>
       </div>
@@ -29,8 +34,8 @@
 
 </div>
 
-<!-- <ng-template #spin>
-  <div class="container__spinner">
-    <app-spinner></app-spinner>
-  </div>
-</ng-template> -->
+
+<!-- Spinner -->
+<div class="container__spinner" *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>

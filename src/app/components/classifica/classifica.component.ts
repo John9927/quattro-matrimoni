@@ -15,11 +15,16 @@ export class ClassificaComponent implements OnInit {
   showMonth: Boolean = false;
   dataArray: any = [];
   dataArrayMonth: any = [];
+  annoCorrente: string | undefined;
+  spinner: Boolean = false;
+
   ngOnInit(): void {
     this.getData();
   }
 
   getData() {
+    this.dataArray = [];
+    this.spinner = true;
     this.getDataService.getMonthAndYear().subscribe((data: any) =>
       this.responses = data.docs.map((e: any) => {
         return {
@@ -34,11 +39,15 @@ export class ClassificaComponent implements OnInit {
         this.dataArray = this.dataArray.filter(function (elem: any, index: any, self: any) {
           return index === self.indexOf(elem);
         });
+        this.spinner = false;
         this.showYear = true;
       }, 800);
   }
 
   onClickAnno(anno: string) {
+    this.dataArrayMonth = [];
+    this.spinner = true;
+    this.annoCorrente = anno;
     this.showYear = false;
     this.showMonth = true;
     this.getDataService.getFilterMonthAndYear(anno).subscribe(data => {
@@ -55,8 +64,18 @@ export class ClassificaComponent implements OnInit {
         this.dataArrayMonth = this.dataArrayMonth.filter(function (elem: any, index: any, self: any) {
           return index === self.indexOf(elem);
         });
+        this.spinner = false;
       }, 800);
     })
+  }
+
+  onClickAnnoLabel() {
+    this.showYear = true;
+    this.showMonth = false;
+  }
+
+  onClickMese(m: string) {
+    console.log(m)
   }
 
 }
