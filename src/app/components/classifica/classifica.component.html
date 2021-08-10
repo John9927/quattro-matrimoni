@@ -19,9 +19,9 @@
     <div class="label__data__container">
       <span class="label__data">
         <span (click)="onClickAnnoLabel()" style="color: green; text-decoration: underline;">
-          Scegli Anno
+          {{annoCorrente}}
         </span>
-        &nbsp; -> {{annoCorrente}}
+        &nbsp; --> &nbsp; Scegli Mese
       </span>
     </div>
     <div class="card" *ngFor="let m of dataArrayMonth" (click)="onClickMese(m)">
