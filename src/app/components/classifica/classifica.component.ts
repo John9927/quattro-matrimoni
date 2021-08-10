@@ -15,8 +15,12 @@ export class ClassificaComponent implements OnInit {
   showMonth: Boolean = false;
   dataArray: any = [];
   dataArrayMonth: any = [];
-  annoCorrente: string | undefined;
+  annoCorrente: any;
+  meseCorrente: any;
   spinner: Boolean = false;
+  showClassifica: Boolean = false;
+  responsesClassifica: any;
+  filterClassifica: any = [];
 
   ngOnInit(): void {
     this.getData();
@@ -32,16 +36,16 @@ export class ClassificaComponent implements OnInit {
           ...e.data() as any
         } as any;
       }));
-      setTimeout(() => {
-        this.responses.map((data: any) => {
-          this.dataArray.push(data.anno);
-        });
-        this.dataArray = this.dataArray.filter(function (elem: any, index: any, self: any) {
-          return index === self.indexOf(elem);
-        });
-        this.spinner = false;
-        this.showYear = true;
-      }, 800);
+    setTimeout(() => {
+      this.responses.map((data: any) => {
+        this.dataArray.push(data.anno);
+      });
+      this.dataArray = this.dataArray.filter(function (elem: any, index: any, self: any) {
+        return index === self.indexOf(elem);
+      });
+      this.spinner = false;
+      this.showYear = true;
+    }, 800);
   }
 
   onClickAnno(anno: string) {
@@ -58,10 +62,39 @@ export class ClassificaComponent implements OnInit {
         } as any;
       });
       setTimeout(() => {
-        this.monthResponses.map((data: any) => {
-          this.dataArrayMonth.push(data.mese);
+        this.monthResponses.map((datas: any) => {
+          this.dataArrayMonth.push(datas.mese);
         });
         this.dataArrayMonth = this.dataArrayMonth.filter(function (elem: any, index: any, self: any) {
+          return index === self.indexOf(elem);
+        });
+        this.spinner = false;
+      }, 900);
+    })
+  }
+
+  onClickMese(m: string) {
+    this.meseCorrente = m;
+    this.showMonth = false;
+    this.showYear = false;
+    this.spinner = true;
+    this.showClassifica = true;
+
+    this.getDataService.getDataClassifica(this.annoCorrente, this.meseCorrente).subscribe(data => {
+      this.responsesClassifica = data.docs.map((e: any) => {
+        return {
+          id: e.id,
+          ...e.data() as any
+        } as any;
+      });
+      this.spinner = false;
+
+      setTimeout(() => {
+        this.responsesClassifica.map((datasa: any) => {
+          console.log(datasa)
+          this.filterClassifica.push(datasa.nome);
+        });
+        this.filterClassifica = this.filterClassifica.filter(function (elem: any, index: any, self: any) {
           return index === self.indexOf(elem);
         });
         this.spinner = false;
@@ -72,10 +105,12 @@ export class ClassificaComponent implements OnInit {
   onClickAnnoLabel() {
     this.showYear = true;
     this.showMonth = false;
+    this.showClassifica = false;
   }
 
-  onClickMese(m: string) {
-    console.log(m)
+  onClickMeseLabel() {
+    this.showMonth = true;
+    this.showYear = false;
+    this.showClassifica = false;
   }
-
 }

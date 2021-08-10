@@ -31,6 +31,26 @@
     </div>
   </div>
 
+  <!-- Classifica -->
+  <div *ngIf="showClassifica">
+    <div class="label__data__container">
+      <span class="label__data">
+        <span (click)="onClickAnnoLabel()" style="color: green; text-decoration: underline;">
+          {{annoCorrente}}
+        </span>
+          &nbsp; --> &nbsp;
+        <span (click)="onClickMeseLabel()" style="color: green; text-decoration: underline;">
+          {{meseCorrente}}
+        </span>
+      </span>
+    </div>
+    <div class="card" *ngFor="let classifica of filterClassifica">
+      <div class="title">
+        <span class="label">{{classifica}} </span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 

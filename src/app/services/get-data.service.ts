@@ -90,5 +90,9 @@ export class GetDataService {
   getFilterMonthAndYear(anno: string) {
     return this.firestore.collection('dati', ref => ref.where("anno", "==", anno)).get();
   }
+
+  getDataClassifica(anno: number, mese: string) {
+    return this.firestore.collection('dati', ref => ref.where('anno', '==', anno).where('mese', '==' , mese)).get();
+  }
 }
 
