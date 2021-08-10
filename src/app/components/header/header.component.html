@@ -3,11 +3,11 @@
     <div class="container__items">
       <div class="title" >
         <!-- Hamburger -->
-        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="showHamburger == false">
+        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="getDataService.showHamburger == false">
           <i class="fas fa-bars"></i>
         </div>
         <!-- Close -->
-        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="showHamburger == true">
+        <div class="fa-bars-container" (click)="onClickMenu()" *ngIf="getDataService.showHamburger == true">
           <i class="fas fa-times"></i>
         </div>
         <div class="label">
@@ -27,20 +27,5 @@
   </div>
 </div>
 
-
-<div *ngIf="showHamburger" class="container__header__mobile">
-  <div class="header__mobile">
-    <div class="container__item">
-      <div class="items" (click)="onClickHome()">
-        <button class="button" >
-          Home
-        </button>
-      </div>
-      <div class="items" (click)="onClickPunteggio()">
-        <button class="button" >
-          Punteggio
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Menu -->
+<app-menu></app-menu>

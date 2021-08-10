@@ -1,0 +1,21 @@
+<div *ngIf="getDataService.showHamburger" class="container__header__mobile">
+  <div class="header__mobile">
+    <div class="container__item">
+      <div class="items" (click)="onClickButton('')">
+        <button class="button" >
+          Home
+        </button>
+      </div>
+      <div class="items" (click)="onClickButton('list')">
+        <button class="button" >
+          Punteggio
+        </button>
+      </div>
+      <div class="items" (click)="onClickButton('classifica')">
+        <button class="button" >
+          Classifica
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

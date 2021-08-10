@@ -3,6 +3,7 @@ import { DetailListComponent } from './components/detail-list/detail-list.compon
 import { ListComponent } from './components/list/list.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
+import { ClassificaComponent } from './components/classifica/classifica.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'detail', component: DetailComponent },
   { path: 'list', component: ListComponent },
   { path: 'detail-list', component: DetailListComponent },
-  { path: 'detail-score', component: DetailScoreComponent }
+  { path: 'detail-score', component: DetailScoreComponent },
+  { path: 'classifica', component: ClassificaComponent}
 ];
 
 @NgModule({

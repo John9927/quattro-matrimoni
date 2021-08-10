@@ -13,6 +13,7 @@ export class GetDataService {
   servizio: any = [];
   modalSuccess: Boolean = false;
   response: any;
+  showHamburger: Boolean = false;
 
   allData: any;
 

@@ -1,3 +1,4 @@
+import { GetDataService } from './../../services/get-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  showHamburger: Boolean = false;
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, public getDataService: GetDataService) { }
 
   ngOnInit(): void {  }
 
@@ -18,10 +19,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onClickMenu() {
-    this.showHamburger = !this.showHamburger;
-  }
-
-  onClickPunteggio() {
-    this.router.navigateByUrl('list')
+    this.getDataService.showHamburger = !this.getDataService.showHamburger;
   }
 }

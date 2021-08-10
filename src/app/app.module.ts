@@ -15,6 +15,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { DetailListComponent } from './components/detail-list/detail-list.component';
 import { DetailScoreComponent } from './components/detail-score/detail-score.component';
 import { AgmCoreModule } from '@agm/core';
+import { ClassificaComponent } from './components/classifica/classifica.component';
+import { MenuComponent } from './components/menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { AgmCoreModule } from '@agm/core';
     SpinnerComponent,
     DetailListComponent,
     DetailScoreComponent,
+    ClassificaComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
